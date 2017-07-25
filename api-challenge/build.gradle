@@ -1,0 +1,41 @@
+buildscript {
+    ext.spring_boot_version = '1.5.3.RELEASE'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
+    }
+}
+
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'application'
+
+
+jar {
+    baseName = 'api-challenge'
+    version = '1.0.0'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    compile 'org.springframework.boot:spring-boot-starter-validation'
+    compile 'org.springframework.boot:spring-boot-starter-test'
+    compile 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:2.0.0'
+    testCompile 'junit:junit'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0.1'
+}
+
+springBoot {
+    mainClass = 'com.endava.bod.challenge.api.Application'
+}
