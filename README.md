@@ -23,10 +23,23 @@ Where user is the Bitbucket user
  ./gradlew run
  ```
 
+ ### Data Processing Challenge
+ 
+  ```bash
+ ./gradlew run
+ ```
+
  ### API Challenge
 
  ```bash
  ./gradlew bootRun
+ ```
+
+ Note: If you want to run the application using Docker, you should execute the commands below:
+
+ ```bash
+ docker build -t javarampup-apichallenge .
+ docker run -d -p 8080:8080 javarampup-apichallenge:latest
  ```
 
  Note: If you need to know more details about this project you can visit the [Confluence Site](https://confluence.endava.com/pages/viewpage.action?pageId=28450373)
