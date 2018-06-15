@@ -56,7 +56,7 @@ public class ApplicationController {
     public ResponseEntity<Newsletter> createSubscriber(@RequestParam String email) {
 
         /*
-        1. Para cada registro en la tabla book_category_codes reconstruir la ruta hacia el padre, cada vez,
+        0. Para cada registro en la tabla book_category_codes reconstruir la ruta hacia el padre, cada vez,
         que se encuentra un padre, verificar si el usuario tiene esa categoria agregada en la tabla subscriber_category_codes
         1. Si el usuario tiene la categoria, agregar la ruta al arraylist y continuar con el siguiente libro, sino continuar al siguiente padre del libro hasta que este sea nulo.
         2. Si se llega a un padre nulo, se descarta el libro actual y se continua con el siguiente
@@ -86,17 +86,10 @@ public class ApplicationController {
 
                         if(newsletter.getNotifications().contains(new Notification(book.getTitle()))) {
                             int index = newsletter.getNotifications().indexOf(new Notification(book.getTitle()));
-
-                            Path path = new Path();
-                            path.setPaths(tmp2);
-
-                            newsletter.getNotifications().get(index).getPaths().add(path);
-
+                            newsletter.getNotifications().get(index).getPaths().add(tmp2);
                         }else {
                             notification.setBookName(book.getTitle());
-                            Path path = new Path();
-                            path.setPaths(tmp2);
-                            notification.getPaths().add(path);
+                            notification.getPaths().add(tmp2);
                             newsletter.getNotifications().add(notification);
                         }
                         break;

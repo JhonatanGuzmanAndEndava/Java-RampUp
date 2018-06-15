@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Notification {
 
     private String book;
-    private List<Path> paths = new ArrayList<>();
+    private List<List<String>> categoryPaths = new ArrayList<>();
 
     public Notification() {}
 
@@ -23,12 +23,12 @@ public class Notification {
         this.book = book;
     }
 
-    public List<Path> getPaths() {
-        return paths;
+    public List<List<String>> getPaths() {
+        return categoryPaths;
     }
 
-    public void setPaths(List<Path> paths) {
-        this.paths = paths;
+    public void setPaths(List<List<String>> categoryPaths) {
+        this.categoryPaths = categoryPaths;
     }
 
     @Override
