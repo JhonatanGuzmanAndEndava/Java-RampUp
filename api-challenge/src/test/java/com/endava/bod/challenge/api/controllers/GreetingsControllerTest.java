@@ -12,7 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(GreetingsController.class)
+@WebMvcTest(ApplicationController.class)
 public class GreetingsControllerTest {
 
     @Autowired
